@@ -54,7 +54,7 @@ export default async function ToolsPage({
 
   const baseQuery = supabase
     .from("tools")
-    .select<ToolRow[]>(
+    .select(
       "id, name, description, photo_url, owner:users!tools_owner_id_fkey (id, full_name, address, phone_number)",
     )
     .order("created_at", { ascending: false });
@@ -69,8 +69,9 @@ export default async function ToolsPage({
     console.error("[tools/page] Failed to load tools", error);
   }
 
-  const tools =
-    toolsData?.map((tool) => ({
+  const typedTools = (toolsData ?? []) as ToolRow[];
+
+  const tools = typedTools.map((tool) => ({
       id: tool.id,
       name: tool.name,
       description: tool.description,
@@ -81,7 +82,7 @@ export default async function ToolsPage({
         address: tool.owner?.address ?? "Address unavailable",
         phone_number: tool.owner?.phone_number ?? "",
       },
-    })) ?? [];
+    }));
 
   return (
     <div className="space-y-10">

@@ -28,7 +28,23 @@ export async function GET(request: Request) {
     return NextResponse.redirect(errorRedirect);
   }
 
-  const supabase = createRouteHandlerClient<Database>({ cookies });
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.error(
+      "Supabase env vars missing for route handler. Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.",
+    );
+    return NextResponse.redirect(errorRedirect);
+  }
+
+  const supabase = createRouteHandlerClient<Database>(
+    { cookies },
+    {
+      supabaseUrl,
+      supabaseKey,
+    },
+  );
 
   try {
     const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(
