@@ -7,9 +7,9 @@ type TypedSupabaseClient = SupabaseClient<Database>;
 
 export function getSupabaseServerClient(): TypedSupabaseClient {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-  if (!url || !anonKey) {
+  if (!url || !publishableKey) {
     throw new Error(
       "Supabase server client env vars are missing. Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.",
     );
@@ -19,7 +19,7 @@ export function getSupabaseServerClient(): TypedSupabaseClient {
     { cookies },
     {
       supabaseUrl: url,
-      supabaseKey: anonKey,
+      supabaseKey: publishableKey,
     },
   ) as unknown) as TypedSupabaseClient;
 }
