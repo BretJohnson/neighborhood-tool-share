@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const primarySans = Inter({
+  variable: "--font-primary-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const primaryMono = Roboto_Mono({
+  variable: "--font-primary-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -31,10 +31,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
+      return (
+        <html lang="en">
+          <body
+        className={`${primarySans.variable} ${primaryMono.variable} bg-background text-foreground antialiased`}
       >
         <div className="flex min-h-screen flex-col">
           <Navigation />

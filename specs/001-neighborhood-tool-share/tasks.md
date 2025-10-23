@@ -36,7 +36,7 @@ Next.js 14+ App Router structure:
       - [x] T002 [P] Install dependencies: next, react, typescript, tailwindcss, @supabase/supabase-js, @supabase/auth-helpers-nextjs, zod, react-hook-form, @hookform/resolvers
       - [x] T003 [P] Configure TypeScript in tsconfig.json with strict mode and path aliases (@/)
       - [x] T004 [P] Configure Tailwind CSS in tailwind.config.js and app/globals.css
-      - [x] T005 [P] Create .env.local template with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY placeholders
+      - [x] T005 [P] Create .env.local template with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY placeholders
       - [x] T006 [P] Configure next.config.js with image domains for Supabase storage
       - [x] T007 [P] Create .gitignore entries for .env.local, .next, node_modules
       - [x] T008 Create project folder structure: app/, components/, lib/, public/, supabase/
@@ -97,14 +97,14 @@ Next.js 14+ App Router structure:
 
 ### Implementation for User Story 2
 
-- [ ] T028 [P] [US2] Create SignInButton component with Facebook OAuth in components/auth/SignInButton.tsx
-- [ ] T029 [P] [US2] Create landing page in app/page.tsx with Facebook login button and tool share rules preview
-- [ ] T030 [P] [US2] Create OAuth callback route handler in app/auth/callback/route.ts
-- [ ] T031 [US2] Create signup page in app/signup/page.tsx with auth check and redirect logic
-- [ ] T032 [US2] Create SignupForm client component in components/auth/SignupForm.tsx with React Hook Form and Zod validation
-- [ ] T033 [US2] Create completeSignup server action in lib/actions/auth.ts
-- [ ] T034 [US2] Add phone number validation regex to user schema
-- [ ] T035 [US2] Add error handling for Facebook OAuth unavailability in callback route
+- [x] T028 [P] [US2] Create SignInButton component with Facebook OAuth in components/auth/SignInButton.tsx
+- [x] T029 [P] [US2] Create landing page in app/page.tsx with Facebook login button and tool share rules preview
+- [x] T030 [P] [US2] Create OAuth callback route handler in app/auth/callback/route.ts
+- [x] T031 [US2] Create signup page in app/signup/page.tsx with auth check and redirect logic
+- [x] T032 [US2] Create SignupForm client component in components/auth/SignupForm.tsx with React Hook Form and Zod validation
+- [x] T033 [US2] Create completeSignup server action in lib/actions/auth.ts
+- [x] T034 [US2] Add phone number validation regex to user schema
+- [x] T035 [US2] Add error handling for Facebook OAuth unavailability in callback route
 - [ ] T036 [US2] Configure Supabase Auth provider for Facebook OAuth (manual step in Supabase dashboard)
 
 **Checkpoint**: Users can sign in with Facebook, complete profile, and access authenticated pages

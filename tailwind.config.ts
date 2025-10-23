@@ -16,10 +16,12 @@ const config: Config = {
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        border: "var(--border)",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ["var(--font-primary-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-primary-mono)", "monospace"],
       },
       boxShadow: {
         card: "0 20px 25px -5px rgb(59 130 246 / 0.1), 0 10px 10px -5px rgb(59 130 246 / 0.04)",

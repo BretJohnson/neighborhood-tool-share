@@ -225,7 +225,7 @@ Create a file named `.env.local` in the project root:
 ```bash
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...your-anon-key...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJhbGc...your-publishable-key...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...your-service-role-key...
 
 # Site URL (for redirects)
@@ -245,7 +245,7 @@ Create a simple test file to verify configuration:
 node -e "
 require('dotenv').config({ path: '.env.local' });
 console.log('Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
-console.log('Has anon key:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+console.log('Has publishable key:', !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
 console.log('Has service key:', !!process.env.SUPABASE_SERVICE_ROLE_KEY);
 "
 ```
@@ -659,8 +659,8 @@ export default async function DebugPage() {
 3. **Configure Environment Variables**:
    - In Vercel project settings → Environment Variables
    - Add all variables from `.env.local`:
-     - `NEXT_PUBLIC_SUPABASE_URL`
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+    - `NEXT_PUBLIC_SUPABASE_URL`
+    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
      - `SUPABASE_SERVICE_ROLE_KEY`
      - `NEXT_PUBLIC_SITE_URL` (set to your Vercel domain)
 
