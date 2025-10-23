@@ -32,14 +32,14 @@ Next.js 14+ App Router structure:
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Next.js 14+ project with TypeScript and Tailwind CSS
-- [ ] T002 [P] Install dependencies: next, react, typescript, tailwindcss, @supabase/supabase-js, @supabase/auth-helpers-nextjs, zod, react-hook-form, @hookform/resolvers
-- [ ] T003 [P] Configure TypeScript in tsconfig.json with strict mode and path aliases (@/)
-- [ ] T004 [P] Configure Tailwind CSS in tailwind.config.js and app/globals.css
-- [ ] T005 [P] Create .env.local template with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY placeholders
-- [ ] T006 [P] Configure next.config.js with image domains for Supabase storage
-- [ ] T007 [P] Create .gitignore entries for .env.local, .next, node_modules
-- [ ] T008 Create project folder structure: app/, components/, lib/, public/, supabase/
+      - [x] T001 Initialize Next.js 14+ project with TypeScript and Tailwind CSS
+      - [x] T002 [P] Install dependencies: next, react, typescript, tailwindcss, @supabase/supabase-js, @supabase/auth-helpers-nextjs, zod, react-hook-form, @hookform/resolvers
+      - [x] T003 [P] Configure TypeScript in tsconfig.json with strict mode and path aliases (@/)
+      - [x] T004 [P] Configure Tailwind CSS in tailwind.config.js and app/globals.css
+      - [x] T005 [P] Create .env.local template with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY placeholders
+      - [x] T006 [P] Configure next.config.js with image domains for Supabase storage
+      - [x] T007 [P] Create .gitignore entries for .env.local, .next, node_modules
+      - [x] T008 Create project folder structure: app/, components/, lib/, public/, supabase/
 
 ---
 
