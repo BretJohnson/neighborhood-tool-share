@@ -118,12 +118,4 @@ create policy "Users can delete own tools"
   for delete
   using (auth.uid() = owner_id);
 
--- Storage bucket ---------------------------------------------------
-select storage.create_bucket('tools', public => true)
-where not exists (
-  select 1
-  from storage.buckets
-  where id = 'tools'
-);
-
 commit;
