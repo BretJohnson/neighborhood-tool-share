@@ -86,12 +86,12 @@ export default async function ToolsPage({
 
   return (
     <div className="space-y-10">
-      <Card className="space-y-4">
+      <Card className="space-y-6">
         <div className="space-y-2">
-          <h1 className="text-2xl font-semibold text-foreground">
+          <h1 className="text-3xl font-semibold text-foreground md:text-4xl">
             Browse Neighborhood Tools
           </h1>
-          <p className="text-sm text-muted">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             Search the Abbington library to find the perfect tool for your next
             project. Reach out to the owner directly to coordinate pickup.
           </p>
@@ -101,7 +101,7 @@ export default async function ToolsPage({
       </Card>
 
       {error ? (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-6 py-4 text-sm text-red-700">
+        <div className="rounded-lg border border-destructive/30 bg-destructive/10 px-6 py-4 text-sm text-destructive">
           We couldn&apos;t load tools right now. Please refresh or try again in
           a moment.
         </div>

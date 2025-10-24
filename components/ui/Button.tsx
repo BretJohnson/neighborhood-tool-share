@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import type { ButtonHTMLAttributes } from "react";
 import { cx } from "@/lib/utils/formatting";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "facebook";
 type ButtonSize = "md" | "sm" | "lg";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,19 +13,24 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
 }
 
+const baseClasses =
+  "inline-flex items-center justify-center rounded-md font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60";
+
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand text-white hover:bg-brand-dark focus-visible:ring-brand-dark",
+    "bg-primary text-primary-foreground shadow-card hover:shadow-card-hover focus-visible:ring-primary/45",
   secondary:
-    "bg-white text-brand border border-brand hover:bg-brand/10 focus-visible:ring-brand",
+    "border border-secondary/50 bg-secondary text-secondary-foreground hover:bg-secondary/70 focus-visible:ring-secondary/40",
   ghost:
-    "bg-transparent text-foreground hover:bg-foreground/10 focus-visible:ring-foreground/40",
+    "border border-transparent bg-transparent text-foreground hover:bg-foreground/10 focus-visible:ring-foreground/30",
+  facebook:
+    "bg-facebook text-facebook-foreground shadow-card hover:bg-facebook-hover focus-visible:ring-facebook/50",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-6 py-3 text-lg",
+  sm: "h-10 px-4 text-sm",
+  md: "h-11 px-5 text-base",
+  lg: "h-12 px-6 text-lg",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
@@ -36,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <button
       ref={ref}
       className={cx(
-        "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60",
+        baseClasses,
         variantClasses[variant],
         sizeClasses[size],
         className,

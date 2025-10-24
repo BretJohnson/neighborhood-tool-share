@@ -17,22 +17,22 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   const inputId = id ?? props.name;
 
   return (
-    <label className="flex w-full flex-col gap-1 text-sm font-medium text-foreground/80">
+    <label className="flex w-full flex-col gap-2 text-sm font-medium text-muted-foreground">
       {label && <span>{label}</span>}
       <input
         ref={ref}
         id={inputId}
         className={cx(
-          "w-full rounded-md border border-border bg-white px-3 py-2 text-base text-foreground shadow-sm outline-none transition-colors focus:border-brand focus:ring-2 focus:ring-brand/40 placeholder:text-muted",
-          error && "border-red-500 focus:border-red-500 focus:ring-red-200",
+          "w-full rounded-md border border-input bg-card px-4 text-base text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/40 active:border-primary h-11",
+          error && "border-destructive focus:border-destructive focus:ring-destructive/40",
           className,
         )}
         {...props}
       />
       {error ? (
-        <span className="text-xs text-red-500">{error}</span>
+        <span className="text-xs text-destructive">{error}</span>
       ) : hint ? (
-        <span className="text-xs text-muted">{hint}</span>
+        <span className="text-xs text-muted-foreground">{hint}</span>
       ) : null}
     </label>
   );

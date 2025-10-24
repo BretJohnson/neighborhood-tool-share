@@ -11,7 +11,7 @@ export function ToolGrid({
 }: ToolGridProps) {
   if (tools.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-border bg-background/40 px-8 py-12 text-center text-muted">
+      <div className="rounded-lg border border-dashed border-border/60 bg-card px-8 py-12 text-center text-muted-foreground shadow-sm">
         {emptyMessage}
       </div>
     );

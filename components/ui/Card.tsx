@@ -9,8 +9,8 @@ export function Card({ className, elevated = true, ...props }: CardProps) {
   return (
     <div
       className={cx(
-        "rounded-xl border border-border bg-white p-6 text-foreground shadow-sm",
-        elevated && "shadow-card",
+        "rounded-lg border border-card-border bg-card p-6 text-card-foreground",
+        elevated ? "shadow-card hover:shadow-card-hover transition-shadow" : "shadow-sm",
         className,
       )}
       {...props}

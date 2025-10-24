@@ -12,6 +12,7 @@ export function SignInButton({
   redirectTo = "/auth/callback",
   ...buttonProps
 }: SignInButtonProps) {
+  const { variant: _variant, ...restButtonProps } = buttonProps;
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
@@ -52,12 +53,13 @@ export function SignInButton({
         onClick={handleSignIn}
         loading={pending}
         className="w-full"
-        {...buttonProps}
+        variant="facebook"
+        {...restButtonProps}
       >
         Continue with Facebook
       </Button>
       {error && (
-        <span className="text-sm text-red-500" role="status">
+        <span className="text-sm text-destructive" role="status">
           {error}
         </span>
       )}

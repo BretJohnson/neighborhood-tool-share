@@ -83,7 +83,7 @@ export function SignupForm({
         />
 
         {email && (
-          <div className="text-sm text-muted">
+          <div className="text-sm text-muted-foreground">
             Signed in as <span className="font-medium">{email}</span>
           </div>
         )}
@@ -92,7 +92,7 @@ export function SignupForm({
       <label className="flex items-start gap-3 text-sm text-foreground">
         <input
           type="checkbox"
-          className="mt-1 h-4 w-4 rounded border-border text-brand focus:ring-brand"
+          className="mt-1 h-5 w-5 rounded-md border-2 border-input text-primary focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-background"
           {...register("agreeToRules")}
         />
         <span>
@@ -101,10 +101,10 @@ export function SignupForm({
         </span>
       </label>
       {errors.agreeToRules?.message && (
-        <p className="text-sm text-red-500">{errors.agreeToRules.message}</p>
+        <p className="text-sm text-destructive">{errors.agreeToRules.message}</p>
       )}
 
-      {formError && <p className="text-sm text-red-500">{formError}</p>}
+      {formError && <p className="text-sm text-destructive">{formError}</p>}
 
       <Button type="submit" loading={pending} className="w-full">
         Complete signup

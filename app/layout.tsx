@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const primarySans = Inter({
+const primarySans = Roboto({
   variable: "--font-primary-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -31,14 +32,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-      return (
-        <html lang="en">
-          <body
-        className={`${primarySans.variable} ${primaryMono.variable} bg-background text-foreground antialiased`}
+  return (
+    <html lang="en">
+      <body
+        className={`${primarySans.variable} ${primaryMono.variable} bg-background text-foreground`}
       >
         <div className="flex min-h-screen flex-col">
           <Navigation />
-          <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
+          <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-10 sm:px-6 md:py-12 lg:px-8">
             {children}
           </main>
           <Footer />

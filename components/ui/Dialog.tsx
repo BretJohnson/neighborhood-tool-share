@@ -43,25 +43,29 @@ export function Dialog({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/50 px-4 py-6 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={title}
     >
       <div
         className={cx(
-          "w-full rounded-xl bg-white p-6 text-foreground shadow-lg",
+          "w-full rounded-lg border border-card-border bg-card p-6 text-card-foreground shadow-dialog",
           sizeClassMap[size],
         )}
       >
         <header className="mb-4">
-          {title && <h2 className="text-lg font-semibold">{title}</h2>}
+          {title && <h2 className="text-xl font-semibold text-foreground">{title}</h2>}
           {description && (
-            <p className="mt-1 text-sm text-muted">{description}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{description}</p>
           )}
         </header>
         <div className="space-y-4">{children}</div>
-        {footer && <footer className="mt-6 flex justify-end gap-3">{footer}</footer>}
+        {footer && (
+          <footer className="mt-6 flex flex-wrap justify-end gap-3">
+            {footer}
+          </footer>
+        )}
       </div>
       <button
         type="button"

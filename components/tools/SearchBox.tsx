@@ -46,11 +46,30 @@ export function SearchBox({
   }, [value, pathname, router, searchParams]);
 
   return (
-    <Input
-      value={value}
-      onChange={(event) => setValue(event.target.value)}
-      placeholder={placeholder}
-      aria-label="Search tools"
-    />
+    <div className="relative">
+      <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-muted-foreground">
+        <svg
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19 19-4-4m1.5-5.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"
+          />
+        </svg>
+      </span>
+      <Input
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+        placeholder={placeholder}
+        aria-label="Search tools"
+        type="search"
+        className="rounded-full pl-12 pr-5 shadow-card focus:border-primary focus:ring-primary/40"
+      />
+    </div>
   );
 }

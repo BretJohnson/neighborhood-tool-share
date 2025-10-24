@@ -47,16 +47,16 @@ export default async function SignupPage() {
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-8">
-      <Card className="space-y-4">
+      <Card className="space-y-6">
         <div>
-          <h1 className="text-2xl font-semibold">Complete your profile</h1>
-          <p className="text-sm text-muted">
+          <h1 className="text-3xl font-semibold text-foreground">Complete your profile</h1>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             We only need an address and mobile number so neighbors can coordinate
             safely.
           </p>
         </div>
 
-        <div className="rounded-lg border border-border bg-background/40 px-4 py-3 text-sm text-muted">
+        <div className="rounded-md border border-border/60 bg-card/70 px-4 py-3 text-sm text-muted-foreground">
           <p className="font-medium text-foreground">
             Abbington Tool Share rules
           </p>
