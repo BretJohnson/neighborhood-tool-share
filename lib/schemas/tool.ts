@@ -37,6 +37,16 @@ const FileLikeSchema = z
     },
   );
 
+const CATEGORIES = [
+  "Power Tools",
+  "Hand Tools",
+  "Garden",
+  "Ladders",
+  "Automotive",
+  "Cleaning",
+  "Other"
+] as const;
+
 export const ToolBaseSchema = z.object({
   name: z
     .string()
@@ -47,7 +57,17 @@ export const ToolBaseSchema = z.object({
     .max(MAX_DESCRIPTION_LENGTH, `Description must be under ${MAX_DESCRIPTION_LENGTH} characters`)
     .optional()
     .nullable(),
+  category: z.enum(CATEGORIES, {
+    errorMap: () => ({ message: "Please select a category" }),
+  }),
+  model: z
+    .string()
+    .max(100, "Model number must be shorter than 100 characters")
+    .optional()
+    .nullable(),
 });
+
+export { CATEGORIES };
 
 export const ToolCreateSchema = ToolBaseSchema.extend({
   photo: FileLikeSchema.optional(),

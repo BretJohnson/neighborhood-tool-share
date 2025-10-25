@@ -13,27 +13,33 @@ export type Database = {
     Tables: {
       tools: {
         Row: {
+          category: string;
           created_at: string;
           description: string | null;
           id: string;
+          model: string | null;
           name: string;
           owner_id: string;
           photo_url: string | null;
           updated_at: string;
         };
         Insert: {
+          category: string;
           created_at?: string;
           description?: string | null;
           id?: string;
+          model?: string | null;
           name: string;
           owner_id: string;
           photo_url?: string | null;
           updated_at?: string;
         };
         Update: {
+          category?: string;
           created_at?: string;
           description?: string | null;
           id?: string;
+          model?: string | null;
           name?: string;
           owner_id?: string;
           photo_url?: string | null;

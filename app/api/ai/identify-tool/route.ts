@@ -35,30 +35,20 @@ export async function POST(request: NextRequest) {
 
     // Call OpenAI Vision API
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
+      model: 'gpt-4o',
       messages: [
         {
           role: 'user',
           content: [
             {
               type: 'text',
-              text: `You are helping identify a tool from a photo for a neighborhood tool sharing application.
+              text: `Analyze this image of a tool and provide detailed information about it. Return a JSON object with the following fields:
+- name: The specific name/model of the tool (e.g., "DeWalt 20V Cordless Drill")
+- description: A detailed description of the tool, its features, and typical uses (2-3 sentences)
+- category: One of: "Power Tools", "Hand Tools", "Garden", "Ladders", "Automotive", "Cleaning", or "Other"
+- model: The model number if visible, otherwise null
 
-Please analyze this image and provide:
-1. Tool name (e.g., "Pressure Washer", "Cordless Drill")
-2. Brand (if visible)
-3. Model number (if visible)
-4. A brief description including condition if apparent
-
-Format your response as JSON with these exact fields:
-{
-  "name": "Tool name",
-  "brand": "Brand name or null",
-  "model": "Model number or null",
-  "description": "Brief description"
-}
-
-If you cannot identify the tool or the image does not contain a tool, set name to "Unknown Tool" and provide a helpful message in the description.`,
+Be specific and helpful. If you can't identify the exact tool, make your best educated guess based on what you see.`,
             },
             {
               type: 'image_url',
@@ -69,7 +59,8 @@ If you cannot identify the tool or the image does not contain a tool, set name t
           ],
         },
       ],
-      max_tokens: 500,
+      response_format: { type: 'json_object' },
+      max_completion_tokens: 1000,
     });
 
     const content = response.choices[0]?.message?.content;
@@ -94,9 +85,9 @@ If you cannot identify the tool or the image does not contain a tool, set name t
       const toolInfo = JSON.parse(jsonContent);
       return NextResponse.json({
         name: toolInfo.name || 'Unknown Tool',
-        brand: toolInfo.brand || null,
-        model: toolInfo.model || null,
         description: toolInfo.description || '',
+        category: toolInfo.category || 'Other',
+        model: toolInfo.model || null,
       });
     } catch (parseError) {
       console.error('Failed to parse AI response:', parseError);

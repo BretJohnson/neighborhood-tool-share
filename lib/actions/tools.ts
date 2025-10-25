@@ -14,6 +14,8 @@ export async function createTool(formData: FormData) {
 
   const name = formData.get('name') as string;
   const description = formData.get('description') as string | null;
+  const category = formData.get('category') as string;
+  const model = formData.get('model') as string | null;
   const photoFile = formData.get('photo') as File | null;
 
   if (!name || name.trim().length === 0) {
@@ -24,8 +26,16 @@ export async function createTool(formData: FormData) {
     return { error: 'Tool name must be 255 characters or less' };
   }
 
+  if (!category) {
+    return { error: 'Category is required' };
+  }
+
   if (description && description.length > 5000) {
     return { error: 'Description must be 5000 characters or less' };
+  }
+
+  if (model && model.length > 100) {
+    return { error: 'Model number must be 100 characters or less' };
   }
 
   try {
@@ -46,6 +56,8 @@ export async function createTool(formData: FormData) {
         owner_id: session.user.id,
         name: name.trim(),
         description: description?.trim() || null,
+        category,
+        model: model?.trim() || null,
         photo_url: photoUrl,
       })
       .select()
@@ -76,6 +88,8 @@ export async function updateTool(formData: FormData) {
   const toolId = formData.get('toolId') as string;
   const name = formData.get('name') as string;
   const description = formData.get('description') as string | null;
+  const category = formData.get('category') as string;
+  const model = formData.get('model') as string | null;
   const photoFile = formData.get('photo') as File | null;
 
   if (!toolId) {
@@ -90,8 +104,16 @@ export async function updateTool(formData: FormData) {
     return { error: 'Tool name must be 255 characters or less' };
   }
 
+  if (!category) {
+    return { error: 'Category is required' };
+  }
+
   if (description && description.length > 5000) {
     return { error: 'Description must be 5000 characters or less' };
+  }
+
+  if (model && model.length > 100) {
+    return { error: 'Model number must be 100 characters or less' };
   }
 
   try {
@@ -128,6 +150,8 @@ export async function updateTool(formData: FormData) {
       .update({
         name: name.trim(),
         description: description?.trim() || null,
+        category,
+        model: model?.trim() || null,
         photo_url: photoUrl,
       })
       .eq('id', toolId)
