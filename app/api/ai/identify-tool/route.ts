@@ -80,9 +80,18 @@ If you cannot identify the tool or the image does not contain a tool, set name t
       );
     }
 
-    // Parse the JSON response
+    // Parse the JSON response (handle markdown code blocks)
     try {
-      const toolInfo = JSON.parse(content);
+      // Remove markdown code blocks if present (```json ... ``` or ``` ... ```)
+      let jsonContent = content.trim();
+
+      // Check if wrapped in markdown code block
+      const codeBlockMatch = jsonContent.match(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/);
+      if (codeBlockMatch) {
+        jsonContent = codeBlockMatch[1].trim();
+      }
+
+      const toolInfo = JSON.parse(jsonContent);
       return NextResponse.json({
         name: toolInfo.name || 'Unknown Tool',
         brand: toolInfo.brand || null,
@@ -94,8 +103,7 @@ If you cannot identify the tool or the image does not contain a tool, set name t
       console.error('AI response:', content);
       return NextResponse.json(
         {
-          error: 'Failed to parse AI response',
-          rawResponse: content,
+          error: 'Failed to parse AI response. The AI returned an unexpected format.',
         },
         { status: 500 }
       );

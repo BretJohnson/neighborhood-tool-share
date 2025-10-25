@@ -1,0 +1,3 @@
+setup:
+  - project: abbington-tool-share
+    config: dev_personal
