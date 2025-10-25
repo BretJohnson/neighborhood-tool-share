@@ -23,3 +23,6 @@ export function getSupabaseServerClient(): TypedSupabaseClient {
     },
   ) as unknown) as TypedSupabaseClient;
 }
+
+// Alias for consistency with new code
+export const createServerClient = getSupabaseServerClient;

@@ -1,9 +1,15 @@
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
 import { Card } from "@/components/ui/Card";
 import { SearchBox } from "@/components/tools/SearchBox";
 import { ToolGrid } from "@/components/tools/ToolGrid";
 import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { normalizeSearchTerm } from "@/lib/utils/formatting";
+
+export const metadata: Metadata = {
+  title: "Browse Tools",
+  description: "Browse and search available tools in the Abbington neighborhood",
+};
 
 type ToolOwnerRow = {
   id: string;

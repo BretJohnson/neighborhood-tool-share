@@ -3,7 +3,8 @@ import { z } from "zod";
 export const PHONE_NUMBER_REGEX =
   /^\+?1?\s*(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
-const BaseUserDetailsSchema = z.object({
+// Export for profile edit form
+export const BaseUserDetailsSchema = z.object({
   full_name: z
     .string()
     .min(1, "Full name is required")
@@ -42,6 +43,7 @@ export const UserProfileUpdateSchema = BaseUserDetailsSchema.partial().extend({
     .optional(),
 });
 
+export type BaseUserDetails = z.infer<typeof BaseUserDetailsSchema>;
 export type UserProfileInput = z.infer<typeof UserProfileSchema>;
 export type UserProfileUpdateInput = z.infer<typeof UserProfileUpdateSchema>;
 export type UserSignupInput = z.infer<typeof UserSignupSchema>;

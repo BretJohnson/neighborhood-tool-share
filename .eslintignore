@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+dist/
+build/
+coverage/
+
+# Next.js
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Supabase
+supabase/.temp/
+
+# Vercel
+.vercel/
+
+# Environment
+.env*
+
+# Misc
+*.min.js

@@ -145,28 +145,28 @@ Next.js 14+ App Router structure:
 
 ### Implementation for User Story 3
 
-- [ ] T046 [P] [US3] Create add tool page in app/tools/add/page.tsx with auth check
-- [ ] T047 [P] [US3] Create AddToolForm client component in components/tools/ToolForm.tsx with photo upload
-- [ ] T048 [P] [US3] Create createTool server action in lib/actions/tools.ts
-- [ ] T049 [P] [US3] Create uploadToolPhoto utility in lib/actions/tools.ts for Supabase storage
-- [ ] T050 [US3] Add photo preview functionality in ToolForm component
-- [ ] T051 [US3] Add file type and size validation for photo uploads
-- [ ] T052 [US3] Implement form validation with Zod schema
-- [ ] T053 [US3] Add error handling for storage upload failures
-- [ ] T054 [US3] Add success redirect to tool detail page after creation
-- [ ] T055 [P] [US3] Create tool detail page in app/tools/[id]/page.tsx showing tool info and owner contact
-- [ ] T056 [US3] Add authorization check in tool detail page (authenticated users only)
-- [ ] T057 [US3] Display owner name, address, and phone number for logged-in users
-- [ ] T058 [US3] Add edit/delete buttons for tool owners on detail page
-- [ ] T059 [P] [US3] Create edit tool page in app/tools/[id]/edit/page.tsx with ownership verification
-- [ ] T060 [US3] Create EditToolForm component reusing ToolForm with pre-populated data
-- [ ] T061 [US3] Create updateTool server action in lib/actions/tools.ts
-- [ ] T062 [US3] Add photo replacement functionality (upload new or remove existing)
-- [ ] T063 [P] [US3] Create DeleteToolButton client component in components/tools/DeleteConfirm.tsx
-- [ ] T064 [US3] Create deleteTool server action in lib/actions/tools.ts
-- [ ] T065 [US3] Add confirmation dialog before deleting tool
-- [ ] T066 [US3] Add photo cleanup from storage when tool is deleted
-
+- [x] T046 [P] [US3] Create add tool page in app/tools/add/page.tsx with auth check
+- [x] T047 [P] [US3] Create AddToolForm client component in components/tools/ToolForm.tsx with photo upload
+- [x] T048 [P] [US3] Create createTool server action in lib/actions/tools.ts
+- [x] T049 [P] [US3] Create uploadToolPhoto utility in lib/actions/tools.ts for Supabase storage
+- [x] T050 [US3] Add photo preview functionality in ToolForm component
+- [x] T051 [US3] Add file type and size validation for photo uploads
+- [x] T052 [US3] Implement form validation with Zod schema
+- [x] T053 [US3] Add error handling for storage upload failures
+- [x] T054 [US3] Add success redirect to tool detail page after creation
+- [x] T055 [P] [US3] Create tool detail page in app/tools/[id]/page.tsx showing tool info and owner contact
+- [x] T056 [US3] Add authorization check in tool detail page (authenticated users only)
+- [x] T057 [US3] Display owner name, address, and phone number for logged-in users
+- [x] T058 [US3] Add edit/delete buttons for tool owners on detail page
+- [x] T059 [P] [US3] Create edit tool page in app/tools/[id]/edit/page.tsx with ownership verification
+- [x] T060 [US3] Create EditToolForm component reusing ToolForm with pre-populated data
+- [x] T061 [US3] Create updateTool server action in lib/actions/tools.ts
+- [x] T062 [US3] Add photo replacement functionality (upload new or remove existing)
+- [x] T063 [P] [US3] Create DeleteToolButton client component in components/tools/DeleteConfirm.tsx
+- [x] T064 [US3] Create deleteTooom storage when tool is deleted
+l server action in lib/actions/tools.ts
+- [x] T065 [US3] Add confirmation dialog before deleting tool
+- [x] T066 [US3] Add photo cleanup fr
 **Checkpoint**: Users can add, view, edit, and delete their own tools with photos
 
 ---
@@ -181,11 +181,11 @@ Next.js 14+ App Router structure:
 
 ### Implementation for User Profile
 
-- [ ] T067 [P] [US2] Create profile edit page in app/profile/edit/page.tsx with auth check
-- [ ] T068 [US2] Create ProfileForm client component with React Hook Form
-- [ ] T069 [US2] Create updateProfile server action in lib/actions/profile.ts
-- [ ] T070 [US2] Add phone number validation on profile update
-- [ ] T071 [US2] Add success message and redirect after profile update
+- [x] T067 [P] [US2] Create profile edit page in app/profile/edit/page.tsx with auth check
+- [x] T068 [US2] Create ProfileForm client component with React Hook Form
+- [x] T069 [US2] Create updateProfile server action in lib/actions/profile.ts
+- [x] T070 [US2] Add phone number validation on profile update
+- [x] T071 [US2] Add success message and redirect after profile update
 
 **Checkpoint**: Users can edit all profile fields and changes are validated and saved
 
@@ -201,17 +201,17 @@ Next.js 14+ App Router structure:
 
 ### Implementation for User Story 4
 
-- [ ] T072 [P] [US4] Create AI tool identification API route in app/api/ai/identify-tool/route.ts
-- [ ] T073 [P] [US4] Install OpenAI SDK dependency: openai
-- [ ] T074 [US4] Implement OpenAI Vision API call to extract tool information from photo
-- [ ] T075 [US4] Add OPENAI_API_KEY to environment variables
-- [ ] T076 [US4] Create response parser to extract tool name, brand, description from AI response
-- [ ] T077 [US4] Add "Use AI to identify tool" toggle to ToolForm component
-- [ ] T078 [US4] Add photo upload and AI identification flow in ToolForm
-- [ ] T079 [US4] Display AI-populated fields as editable (user can review/modify)
-- [ ] T080 [US4] Add error handling when AI cannot identify tool
-- [ ] T081 [US4] Add guidance message for taking good photos (model number visible)
-- [ ] T082 [US4] Add loading state during AI processing
+- [x] T072 [P] [US4] Create AI tool identification API route in app/api/ai/identify-tool/route.ts
+- [x] T073 [P] [US4] Install OpenAI SDK dependency: openai
+- [x] T074 [US4] Implement OpenAI Vision API call to extract tool information from photo
+- [x] T075 [US4] Add OPENAI_API_KEY to environment variables
+- [x] T076 [US4] Create response parser to extract tool name, brand, description from AI response
+- [x] T077 [US4] Add "Use AI to identify tool" toggle to ToolForm component
+- [x] T078 [US4] Add photo upload and AI identification flow in ToolForm
+- [x] T079 [US4] Display AI-populated fields as editable (user can review/modify)
+- [x] T080 [US4] Add error handling when AI cannot identify tool
+- [x] T081 [US4] Add guidance message for taking good photos (model number visible)
+- [x] T082 [US4] Add loading state during AI processing
 
 **Checkpoint**: Users can optionally use AI to identify tools from photos, with manual override capability
 
@@ -221,22 +221,22 @@ Next.js 14+ App Router structure:
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T083 [P] Add loading states for all server actions
-- [ ] T084 [P] Add error boundary components for graceful error handling
-- [ ] T085 [P] Add toast notifications for success/error feedback
-- [ ] T086 [P] Optimize images with Next.js Image component
-- [ ] T087 [P] Add metadata and SEO tags to all pages
-- [ ] T088 [P] Test responsive design on mobile devices (320px-768px)
-- [ ] T089 [P] Test responsive design on desktop (1024px-1920px+)
-- [ ] T090 Add loading.tsx files for route segments
-- [ ] T091 Add error.tsx files for error handling
-- [ ] T092 Add not-found.tsx for 404 pages
-- [ ] T093 [P] Add favicon and logo to public/images/
-- [ ] T094 [P] Create README.md with setup instructions
-- [ ] T095 Run quickstart.md manual test workflow to validate all features
-- [ ] T096 Configure Vercel deployment settings
-- [ ] T097 Configure Supabase environment variables in Vercel
-- [ ] T098 Test production build with npm run build
+- [x] T083 [P] Add loading states for all server actions
+- [x] T084 [P] Add error boundary components for graceful error handling
+- [x] T085 [P] Add toast notifications for success/error feedback
+- [x] T086 [P] Optimize images with Next.js Image component
+- [x] T087 [P] Add metadata and SEO tags to all pages
+- [x] T088 [P] Test responsive design on mobile devices (320px-768px)
+- [x] T089 [P] Test responsive design on desktop (1024px-1920px+)
+- [x] T090 Add loading.tsx files for route segments
+- [x] T091 Add error.tsx files for error handling
+- [x] T092 Add not-found.tsx for 404 pages
+- [x] T093 [P] Add favicon and logo to public/images/
+- [x] T094 [P] Create README.md with setup instructions
+- [x] T095 Run quickstart.md manual test workflow to validate all features
+- [x] T096 Configure Vercel deployment settings
+- [x] T097 Configure Supabase environment variables in Vercel
+- [x] T098 Test production build with npm run build
 - [ ] T099 Deploy to Vercel and verify all features work in production
 
 ---

@@ -18,10 +18,21 @@ const primaryMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abbington Neighborhood Tool Share",
+  title: {
+    default: "Abbington Neighborhood Tool Share",
+    template: "%s | Abbington Tool Share"
+  },
   description:
-    "Share, discover, and manage neighborhood tools with Supabase-powered authentication and storage.",
+    "Share tools with your neighbors in Abbington. Browse available tools, add your own, and build a stronger community by sharing resources.",
   metadataBase: new URL("https://abbington-tool-share.example.com"),
+  keywords: ["tool sharing", "neighborhood", "Abbington", "community", "borrow tools"],
+  authors: [{ name: "Abbington Community" }],
+  openGraph: {
+    title: "Abbington Neighborhood Tool Share",
+    description: "Share tools with your neighbors in Abbington",
+    type: "website",
+    locale: "en_US",
+  },
   icons: {
     icon: "/favicon.ico",
   },

@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import type { ButtonHTMLAttributes } from "react";
 import { cx } from "@/lib/utils/formatting";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "facebook";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "facebook" | "danger";
 type ButtonSize = "md" | "sm" | "lg";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -25,6 +25,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "border border-transparent bg-transparent text-foreground hover:bg-foreground/10 focus-visible:ring-foreground/30",
   facebook:
     "bg-facebook text-facebook-foreground shadow-card hover:bg-facebook-hover focus-visible:ring-facebook/50",
+  danger:
+    "bg-red-600 text-white shadow-card hover:bg-red-700 focus-visible:ring-red-500",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

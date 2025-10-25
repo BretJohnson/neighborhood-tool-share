@@ -5,6 +5,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/tools", label: "Browse Tools" },
   { href: "/tools/add", label: "Share a Tool" },
+  { href: "/profile/edit", label: "My Profile" },
 ];
 
 export interface NavigationProps {
