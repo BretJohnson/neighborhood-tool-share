@@ -11,6 +11,7 @@ const FileLikeSchema = z
       if (value === undefined || value === null) return true;
       if (typeof File !== "undefined" && value instanceof File) return true;
       if (typeof Blob !== "undefined" && value instanceof Blob) return true;
+      if (typeof FileList !== "undefined" && value instanceof FileList) return true;
       return false;
     },
     { message: "Upload must be a valid image file" },
@@ -19,6 +20,12 @@ const FileLikeSchema = z
     (value) => {
       if (!value || typeof value === "undefined") return true;
       if (typeof File === "undefined" && typeof Blob === "undefined") return true;
+      // Handle FileList
+      if (value instanceof FileList) {
+        if (value.length === 0) return true;
+        const file = value[0];
+        return !file.size || file.size <= MAX_FILE_SIZE_BYTES;
+      }
       const file = value as File | Blob;
       return !file.size || file.size <= MAX_FILE_SIZE_BYTES;
     },
@@ -28,6 +35,12 @@ const FileLikeSchema = z
     (value) => {
       if (!value || typeof value === "undefined") return true;
       if (typeof File === "undefined" && typeof Blob === "undefined") return true;
+      // Handle FileList
+      if (value instanceof FileList) {
+        if (value.length === 0) return true;
+        const file = value[0];
+        return !file.type || ALLOWED_FILE_TYPES.includes(file.type);
+      }
       const file = value as File | Blob & { type?: string };
       return !file.type || ALLOWED_FILE_TYPES.includes(file.type);
     },
