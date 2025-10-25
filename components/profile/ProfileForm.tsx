@@ -100,7 +100,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
 
       <div>
         <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700 mb-2">
-          Phone Number *
+          Mobile Number *
         </label>
         <Input
           id="phone_number"
@@ -110,7 +110,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
           error={errors.phone_number?.message}
         />
         <p className="mt-1 text-sm text-gray-500">
-          US phone number format
+          US mobile number format
         </p>
       </div>
 

@@ -15,7 +15,7 @@ export const BaseUserDetailsSchema = z.object({
     .max(1000, "Address must be shorter than 1000 characters"),
   phone_number: z
     .string()
-    .regex(PHONE_NUMBER_REGEX, "Enter a valid US phone number"),
+    .regex(PHONE_NUMBER_REGEX, "Enter a valid US mobile number"),
 });
 
 export const UserProfileSchema = BaseUserDetailsSchema.extend({

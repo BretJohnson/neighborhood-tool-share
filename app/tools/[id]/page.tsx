@@ -84,7 +84,7 @@ export default async function ToolDetailPage({ params }: ToolDetailPageProps) {
                 <span className="font-medium">Address:</span> {tool.owner.address}
               </p>
               <p>
-                <span className="font-medium">Phone:</span> {tool.owner.phone_number}
+                <span className="font-medium">Mobile:</span> {tool.owner.phone_number}
               </p>
             </div>
             {!isOwner && (
