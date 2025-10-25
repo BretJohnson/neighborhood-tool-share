@@ -100,10 +100,63 @@ If you cannot identify the tool or the image does not contain a tool, set name t
         { status: 500 }
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in AI tool identification:', error);
+
+    // Handle OpenAI API errors with descriptive messages
+    if (error?.error) {
+      const { type, code, message } = error.error;
+
+      // Sanitize error message to remove sensitive information (API keys)
+      const sanitizedMessage = message
+        ? message.replace(/[a-zA-Z0-9_-]{20,}/g, '***')
+        : 'Unknown error';
+
+      let userMessage = 'AI identification failed. ';
+
+      // Provide specific guidance based on error type
+      switch (code) {
+        case 'invalid_api_key':
+          userMessage += 'The AI service is not properly configured. Please contact the site administrator. (Error: Invalid API key)';
+          break;
+        case 'insufficient_quota':
+          userMessage += 'The AI service has reached its usage limit. Please try again later or contact the site administrator. (Error: Quota exceeded)';
+          break;
+        case 'rate_limit_exceeded':
+          userMessage += 'Too many requests to the AI service. Please wait a moment and try again. (Error: Rate limit exceeded)';
+          break;
+        case 'model_not_found':
+          userMessage += 'The AI model is not available. Please contact the site administrator. (Error: Model not found)';
+          break;
+        case 'invalid_request_error':
+          if (message?.includes('API key')) {
+            userMessage += 'The AI service is not properly configured. Please contact the site administrator. (Error: Invalid API configuration)';
+          } else {
+            userMessage += `Request error: ${sanitizedMessage}`;
+          }
+          break;
+        default:
+          userMessage += `Technical error (${type || 'unknown'}): ${sanitizedMessage}`;
+      }
+
+      return NextResponse.json(
+        { error: userMessage },
+        { status: error.status || 500 }
+      );
+    }
+
+    // Handle other types of errors
+    if (error?.message) {
+      const sanitizedMessage = error.message.replace(/[a-zA-Z0-9_-]{20,}/g, '***');
+      return NextResponse.json(
+        { error: `AI identification failed: ${sanitizedMessage}` },
+        { status: 500 }
+      );
+    }
+
+    // Fallback error message
     return NextResponse.json(
-      { error: 'Failed to identify tool. Please try again.' },
+      { error: 'Failed to identify tool. Please try again or enter details manually.' },
       { status: 500 }
     );
   }
